@@ -1,6 +1,15 @@
 <h1>Create Article Page</h1>
+<!-- Displaying Erros -->
+<% if @article.errors.any? %>
+<h2>Article Not created because of the Following errors</h2>
+<ul>
+    <% @article.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
 
-
+<!-- Form for Adding New Article -->
 <%= form_for @article do |f| %>
     <p>
         <%= f.label :title %> <br>
