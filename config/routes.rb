@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   root 'pages#home'
   ## ROUTES ##
   get 'about', to: 'pages#about'
+
+  resources :articles
 end
