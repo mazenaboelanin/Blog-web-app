@@ -17,3 +17,44 @@
 #logo:hover {
   text-decoration: none;
 }
+
+.jumbotron {
+  background-image: asset-url("blog-cover.jpg");
+  background-size: cover;
+  height: 550px;
+}
+
+.jumbotron h1 {
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+  font-size: 1.7em;
+  //   background-color: black;
+}
+
+.footer {
+  color: #fff;
+  margin-top: 45px;
+  padding-top: 5px;
+  //border-top: 1px solid red;
+  background-color: #212529;
+  //   height: 80px;
+  font-size: larger;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer li a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer li a:hover {
+  color: #aeaeae;
+  text-decoration: underline;
+}
