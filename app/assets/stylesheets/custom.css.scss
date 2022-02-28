@@ -19,7 +19,7 @@
 }
 
 .jumbotron {
-  background-image: asset-url("blog-cover.jpg");
+  background-image: asset-url("authorCover.jpg");
   background-size: cover;
   height: 550px;
 }
@@ -37,24 +37,33 @@
 }
 
 .footer {
-  color: #fff;
+  //color: #fff;
   margin-top: 45px;
   padding-top: 5px;
-  //border-top: 1px solid red;
-  background-color: #212529;
+  border-top: 1px solid #aeaeae;
+  //background-color: #212529;
   //   height: 80px;
   font-size: larger;
 }
 
 .footer ul {
   list-style: none;
+  float: right;
+}
+.footer li {
+  float: left;
+  margin-left: 15px;
 }
 
 .footer li a {
-  color: #fff;
+  //color: #000;
   text-decoration: none;
 }
 .footer li a:hover {
-  color: #aeaeae;
+  color: darkblue;
   text-decoration: underline;
+}
+
+.footer small {
+  float: left;
 }
