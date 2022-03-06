@@ -1,6 +1,8 @@
 <h1 class="text-center">All Alpha Bloggers</h1>
 
+
 <div class="text-center">
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)  %> 
 <% @users.each do |user| %>
     <ul class="listing">
         <div class="row">
@@ -16,3 +18,4 @@
 
 <% end %> 
 </div>
+
