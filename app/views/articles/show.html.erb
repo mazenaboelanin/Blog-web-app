@@ -1,5 +1,21 @@
-<h1>Showing Article</h1>
+<h1 class="text-center">Title: <%= @article.title %></h1>
 
+<% if @article.user%>
+<div class="text-center">
+    <ul class="listing">
+        <div class="row">
+            <div class="well col-md-4 col-md-offset-4 p-3">
+                <li>Created By:</li>
+                <li> <%= link_to gravatar_for(@article.user), user_path(@article.user) %> </li>
+                <li class="article-title">
+                    <%= link_to @article.user.username, user_path(@article.user)  %> 
+                </li>
+                <!-- <li><small></small></li> -->
+            </div>
+        </div>
+    </ul>
+</div>
+<% end %>
 <p>
 Title: <%= @article.title %>
 </p>
