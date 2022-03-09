@@ -12,6 +12,9 @@
                     <%= link_to user.username, user_path(user)  %> 
                 </li>
                 <!-- <li><small></small></li> -->
+                <% if logged_in? and current_user.admin? %>
+                <li> <%= button_to "Delete this user", user_path(user), method: :delete, data: {confirm: "are you sure to delete user and their article?"} %> </li>
+                <% end %>
             </div>
         </div>
     </ul>
