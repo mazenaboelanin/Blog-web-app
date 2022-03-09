@@ -26,4 +26,8 @@ Description: <%= @article.description %>
 
 <%= link_to "Back to listing Articles", articles_path %> | 
 
-<%= link_to "Edit Article", edit_article_path(@article) %>
+<% if logged_in? && current_user == @article.user %>
+<%= link_to "Edit Article", edit_article_path(@article) %> | 
+
+<%= button_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "are you sure you want to delete the article?"}, class: "btn bt-x btn-danger"  %>
+<% end %>
