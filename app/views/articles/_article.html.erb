@@ -1,28 +1,26 @@
 
-<table>
-<tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Created By</th>
-    <th>Created At</th>
-    <th>Last Updated</th>
-</tr> 
 <% obj.each do |article| %>
-<tr>
-    <td><%= article.title %></td>
-    <td><%= article.description %></td>
-    <td><%= article.user.username if article.user %></td>
-    <td><%= time_ago_in_words(article.created_at)  %> ago</td>
-    <td><%= time_ago_in_words(article.updated_at)  %> ago</td>
-    <% if logged_in? && (current_user == article.user || current_user.admin?) %>
-    <td><%= link_to "Edit", edit_article_path(article) %></td>
-    <td><%= link_to "show", article_path(article) %></td>
-    <td><%= button_to "Delete", article_path(article), method: :delete , data: {confirm: "Are you sure?"} %></td>
-    <% end %>
-</tr> 
-<% end %>
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2 py-4">
+        <div class="well p-4">
+            <div class="article-title">
+                <%= link_to article.title, article_path(article) %>
+            </div>
+            <div class="article-body">   
+                <%= truncate(article.description, length: 100) %>
+                <%= article.user.username if article.user %>
+                <%= time_ago_in_words(article.created_at)  %> ago
+                <%= time_ago_in_words(article.updated_at)  %> ago
+            </div>
+            <div class="article-action">
+                <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+                <%= link_to "Edit Article", edit_article_path(article), class: "btn btn-sm btn-primary" %> 
 
+                <%= button_to "Delete Article", article_path(article), method: :delete, data: {confirm: "are you sure you want to delete the article?"}, class: "btn btn-sm btn-danger"  %>
 
-</table>
-
-
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %> 
