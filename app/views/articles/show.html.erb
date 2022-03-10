@@ -4,12 +4,16 @@
 <div class="text-center">
     <ul class="listing">
         <div class="row">
-            <div class="well col-md-4 col-md-offset-4 p-3">
-                <li>Created By:</li>
-                <li> <%= link_to gravatar_for(@article.user), user_path(@article.user) %> </li>
-                <li class="article-title">
-                    <%= link_to @article.user.username, user_path(@article.user)  %> 
-                </li>
+            <div class="col-md-4 col-md-offset-4 p-3 m-auto">
+                <div class="card">
+                    <div class="card-body">
+                    <li>Created By:</li>
+                        <li> <%= link_to gravatar_for(@article.user), user_path(@article.user) %> </li>
+                        <li class="article-title">
+                            <%= link_to @article.user.username, user_path(@article.user)  %> 
+                        </li>
+                    </div>
+                </div>
                 <!-- <li><small></small></li> -->
             </div>
         </div>
@@ -19,18 +23,22 @@
 
 
 
-<div class="well col-xs-8 col-xs-offset-2 py-4">
-    <h4 class="text-center">
-        <strong>Description:</strong>
-        
-        <%= simple_format(@article.description) %>
-        <div class="article-actions">
-            <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-            <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-sm btn-primary" %> 
+<div class="col-xs-8 col-xs-offset-2 py-4">
+    <div class="card p-2 border-0 bg-card">
+        <div class="card-body">
+            <h4>
+                <strong >Description:</strong>
+                
+                <%= simple_format(@article.description) %>
+            </h4>
+            <div class="article-actions">
+                <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+                <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-sm btn-primary" %> 
 
-            <%= button_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "are you sure you want to delete the article?"}, class: "btn btn-sm btn-danger"  %>
-            <% end %>
-            <%= link_to "View all Articles", articles_path, class: "btn btn-sm btn-success" %> 
-        </div> 
-    </h4>
+                <%= button_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "are you sure you want to delete the article?"}, class: "btn btn-sm btn-danger"  %>
+                <% end %>
+                <%= link_to "View all Articles", articles_path, class: "btn btn-sm btn-success" %> 
+            </div> 
+        </div>
+    </div>
 </div>

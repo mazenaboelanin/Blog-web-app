@@ -4,17 +4,21 @@
 <div class="text-center">
 <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)  %> 
 <% @users.each do |user| %>
-    <ul class="listing">
+    <ul class="listing mt-3">
         <div class="row">
-            <div class="well col-md-4 col-md-offset-4 p-3">
-                <li> <%= link_to gravatar_for(user), user_path(user) %> </li>
-                <li class="article-title">
-                    <%= link_to user.username, user_path(user)  %> 
-                </li>
-                <!-- <li><small></small></li> -->
-                <% if logged_in? and current_user.admin? %>
-                <li> <%= button_to "Delete this user", user_path(user), method: :delete, data: {confirm: "are you sure to delete user and their article?"} %> </li>
-                <% end %>
+            <div class=" col-md-4 col-md-offset-4 p-3 m-auto">
+                <div class="card p-2 border-0 bg-card">
+                    <div class="card-body">
+                        <li> <%= link_to gravatar_for(user), user_path(user) %> </li>
+                        <li class="article-title">
+                            <%= link_to user.username, user_path(user)  %> 
+                        </li>
+                        <!-- <li><small></small></li> -->
+                        <% if logged_in? and current_user.admin? %>
+                        <li> <%= button_to "Delete this user", user_path(user), method: :delete, data: {confirm: "are you sure to delete user and their article?"} %> </li>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
     </ul>
