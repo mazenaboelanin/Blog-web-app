@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
         # hardcode user id now for test
         @article.user = current_user
         if @article.save
-            flash[:notice] = 'Article is Successfully Created'
+            flash[:success] = 'Article is Successfully Created'
             redirect_to article_path(@article)
         else 
             render 'new'
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
 
         # @article = Article.find(params[:id])
         if @article.update(article_params)
-            flash[:notice] = 'Article is Updated Successfully'
+            flash[:success] = 'Article is Updated Successfully'
             redirect_to article_path(@article)
         else 
             render 'edit'
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
     def destroy
         # @article = Article.find(params[:id])
         @article.destroy
-        flash[:notice] = "Article has been Deleted Successfully"
+        flash[:danger] = "Article has been Deleted Successfully"
         redirect_to articles_path
     end
 
