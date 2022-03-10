@@ -16,18 +16,21 @@
     </ul>
 </div>
 <% end %>
-<p>
-Title: <%= @article.title %>
-</p>
 
-<p>
-Description: <%= @article.description %>
-</p>
 
-<%= link_to "Back to listing Articles", articles_path %> | 
 
-<% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-<%= link_to "Edit Article", edit_article_path(@article) %> | 
+<div class="well col-xs-8 col-xs-offset-2 py-4">
+    <h4 class="text-center">
+        <strong>Description:</strong>
+        
+        <%= simple_format(@article.description) %>
+        <div class="article-actions">
+            <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+            <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-sm btn-primary" %> 
 
-<%= button_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "are you sure you want to delete the article?"}, class: "btn bt-x btn-danger"  %>
-<% end %>
+            <%= button_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "are you sure you want to delete the article?"}, class: "btn btn-sm btn-danger"  %>
+            <% end %>
+            <%= link_to "View all Articles", articles_path, class: "btn btn-sm btn-success" %> 
+        </div> 
+    </h4>
+</div>
