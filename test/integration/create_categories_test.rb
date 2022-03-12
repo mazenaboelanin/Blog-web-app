@@ -26,4 +26,5 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
         assert_select 'h2.card-title'
         assert_select 'div.card-text'
     end
+
 end
